@@ -1,0 +1,68 @@
+let angle = -27;
+let origin = 200;
+let square = 200;
+let distance = 80
+let colorR = 255
+let colorG = 5
+let colorB = 0
+let color = 20
+let incrementR = 1
+let incrementG = 2
+let incrementB = 3
+
+function setup() {
+  createCanvas(400, 400);
+  angleMode(DEGREES);
+
+}
+function draw() {
+  background(0);
+  fill(colorR, colorG, colorB);
+  noStroke();
+  rectMode(CENTER);
+  translate(origin, origin);
+  rotate(angle);
+  rect(0, 0, square, square);
+  
+push()
+  translate(origin + distance, 0);
+  rect(0, 0, square, square);
+pop()
+  
+  push()
+  translate(-origin - distance, 0);
+  rect(0, 0, square, square);
+pop()
+  
+push()
+  fill(255,100,0)
+  translate(0,origin + distance);
+  rect(0, 0, square, square);
+pop()
+  
+  push()
+  fill(255,100,0)
+  translate(0,-origin - distance);
+  rect(0, 0, square, square);
+pop()
+  
+  
+//   colorR = colorR + incrementR
+//   if (colorR > 255 || colorR < 0) {
+    
+//     incrementR = - incrementR
+//   }
+  
+//     colorG = colorG + incrementG
+//   if (colorG > 255 || colorG < 0) {
+    
+//     incrementG = - incrementG
+//   }
+//   colorB = colorB + incrementB
+//   if (colorB > 255 || colorB < 0) {
+    
+//     incrementB = - incrementB
+  // }
+
+  // angle = angle + 1
+}
