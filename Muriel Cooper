@@ -1,6 +1,3 @@
-// draw a spinning box
-// with width, height and depth of 50
-
 let graphics;
 
 function setup() {
