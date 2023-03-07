@@ -1,0 +1,91 @@
+// draw a spinning box
+// with width, height and depth of 50
+
+let graphics;
+
+function setup() {
+  createCanvas(600, 600, WEBGL);
+  graphics = createGraphics(400,400)
+  graphics.background(0)
+text1 = createGraphics (400,400)
+  text1.fill(38,124,222)
+  text1.textAlign(CENTER)
+  // text1.textLeading()
+    text1.textSize(20)
+  text1.text('Visible Language',280, 50)
+    text1.text('Intelligent Grap',270, 70)
+   text1.text('Television of toronto',291, 90)
+  text1.text('Newspaper of the future',310, 110)
+    text1.text('Interactive Cinema',287, 130)
+  text1.text('Physics and Media',287, 150)
+    text1.text('Structured Video',280, 170)
+  text1.text('Opera of the future',289, 190)
+  text1.text('Special Imagining',285, 210)
+  
+  text2 = createGraphics (400,400)
+  text2.fill(255)
+  text2.textAlign(CENTER)
+    text2.textSize(20)
+  text2.text('Muriel Cooper',270, 50)
+    text2.text('Ron MacNeil',261, 70)
+   text2.text('Walter Bender',270, 90)
+     text2.text('Gloriana Davenport',293, 110)
+   text2.text('Neil Gershenfeld',282, 130)
+   text2.text('Andy Lippman',272, 150)
+text2.text('Tod Machover',270, 170)
+  text2.text('Steve Benton',270, 190)
+  
+  
+    text3 = createGraphics (400,400)
+  text3.fill(32,101,212)
+  text3.textAlign(CENTER)
+    text3.textSize(150)
+    text3.text('l l l ',300, 55)
+  text3.fill(178,29,204)
+  text3.text('Le',300, 310)
+}
+
+function draw() {
+background(0)
+  
+  push()
+  
+  rotateX(frameCount * 0.007);
+  rotateY(frameCount * 0.007);
+  
+  rotate(18.1)
+    rotateX(12)
+  rotateY(13)
+  texture(text1)
+// fill(255,200,100)
+  plane(500,500)
+  pop()
+  
+  push()
+  rotate(18.1)
+  rotateX(12)
+  rotateY(17.8)
+  
+ rotateX(frameCount * 0.007);
+  rotateY(frameCount * 0.007);
+  
+  texture(text2)
+// fill(15,200,100)
+  plane(500,500)
+pop()
+  
+  
+   push()
+  rotate(18.12)
+  rotateX(11.97)
+  rotateY(17.8)
+  
+ rotateX(frameCount * 0.007);
+  rotateY(frameCount * 0.007);
+  
+  texture(text3)
+// fill(15,200,100)
+  plane(600,600)
+pop()
+  
+}
