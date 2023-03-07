@@ -1,0 +1,126 @@
+let numCircles = 1; // Set the number of circles
+let circleSize = 90; // Set the starting size of the circles
+let circleSize2 = 110; // Set the starting size of the circles
+let circleSize3 = 130; // Set the starting size of the circles
+let circleSize4 = 150; // Set the starting size of the circles
+let circleSize5 = 170; // Set the starting size of the circles
+let circleSize6 = 190; // Set the starting size of the circles
+let circleSpacing = 30; // Set the spacing between the circles
+let isExpanding = true; // Flag to track if the circles are expanding or contracting
+let circleColor = 0; // Set the initial color of the circles
+let circleColorincrement = 1
+let circleColor2 = 0; // Set the initial color of the circles
+let circleColor2increment = 1
+let circleColor3 = 0; // Set the initial color of the circles
+let circleColor3increment = 1
+let circleColor4 = 0; // Set the initial color of the circles
+let circleColor4increment = 1
+let circleColor5 = 0; // Set the initial color of the circles
+let circleColor5increment = 1
+let circleColor6 = 0; // Set the initial color of the circles
+let circleColor6increment = 1
+
+function setup() {
+  createCanvas(400, 400); // Set the canvas size
+}
+
+function draw() {
+  background(0); // Set the background color
+
+  // Loop through and draw each circle
+  for (let i = 0; i < numCircles; i++) {
+    // Calculate the current size and position of the circle
+    let currentSize = circleSize + 20;
+      let currentSize2 = circleSize2 + 20;
+     let currentSize3 = circleSize3 + 20;
+         let currentSize4 = circleSize4 + 20;
+             let currentSize5 = circleSize5 + 20;
+      let currentSize6 = circleSize6 + 20;
+    let xPos = width/2;
+    let yPos = height/2;
+
+    // Draw the circle if it's expanding, otherwise don't
+    if (isExpanding || i % 2 == 0) {
+      noFill();
+      stroke(circleColor, 100, 35);
+      strokeWeight(2)
+      ellipse(xPos, yPos, currentSize, currentSize);
+
+      noFill();
+      stroke(155, circleColor2, 25);
+      strokeWeight(2)
+      ellipse(xPos, yPos, currentSize2, currentSize2);
+
+         noFill();
+      stroke(25, circleColor3, 90);
+      strokeWeight(2)
+      ellipse(xPos, yPos, currentSize3, currentSize3);
+
+               noFill();
+      stroke(25, circleColor3, 90);
+      strokeWeight(2)
+      ellipse(xPos, yPos, currentSize4, currentSize4);
+
+                     noFill();
+      stroke(25, circleColor3, 90);
+      strokeWeight(2)
+      ellipse(xPos, yPos, currentSize5, currentSize5);
+
+                           noFill();
+      stroke(25, circleColor6, 90);
+      strokeWeight(2)
+      ellipse(xPos, yPos, currentSize5, currentSize5);
+
+    }
+  }
+
+  // Update the size and color of the circles based on whether they are expanding or contracting
+  if (isExpanding) {
+    circleSize += 0.5;
+     circleSize2 += 0.45;
+         circleSize3 += 0.4;
+    circleSize4 += 0.35;
+      circleSize5 += 0.3;
+
+
+    circleColor = circleColor + circleColorincrement
+  if (circleColor >= 255 || circleColor <= 0) {
+    circleColorincrement = - circleColorincrement}
+
+        circleColor2 = circleColor2 + circleColor2increment
+  if (circleColor2 >= 255 || circleColor2 <= 0) {
+    circleColor2increment = - circleColor2increment}
+
+            circleColor3 = circleColor3 + circleColor3increment
+  if (circleColor3 >= 255 || circleColor3 <= 0) {
+    circleColor3increment = - circleColor3increment}
+
+    if (circleSize >= 300) {
+      isExpanding = false;
+
+    }
+  } else {
+    circleSize -= 0.5;
+     circleSize2 -= 0.45;
+    circleSize3 -= 0.4;
+    circleSize4 -= 0.35;
+    circleSize5 -= 0.3;
+
+
+    circleColor = circleColor + circleColorincrement
+  if (circleColor >= 255 || circleColor <= 0) {
+    circleColorincrement = - circleColorincrement}
+
+        circleColor2 = circleColor2 + circleColor2increment
+  if (circleColor2 >= 255 || circleColor2 <= 0) {
+    circleColor2increment = - circleColor2increment}
+
+            circleColor3 = circleColor3 + circleColor3increment
+  if (circleColor3 >= 255 || circleColor3 <= 0) {
+    circleColor3increment = - circleColor3increment}
+
+    if (circleSize <= 10) {
+      isExpanding = true;
+    }
+  }
+}
