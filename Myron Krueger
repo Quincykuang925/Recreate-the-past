@@ -1,0 +1,82 @@
+let video;
+let poseNet;
+let noseX = 0
+let noseY = 0
+let colorR = 255
+let colorG = 5
+let colorB = 0
+let incrementR = 1
+let incrementG = 2
+let incrementB = 3
+let coloralpha = 1
+let incrementCA = 1
+let timer = 5
+
+function setup() {
+  createCanvas(640, 480);
+  video = createCapture(VIDEO);
+  video.hide()
+  console.log(ml5);
+  poseNet = ml5.poseNet(video,modelReady);
+  poseNet.on('pose', gotPoses);
+  background(0,2);
+ 
+  
+}
+function gotPoses(poses){
+  // console.log(poses);
+  if(poses.length > 0) {
+  noseX = poses[0].pose.keypoints[0].position.x;
+    noseY = poses[0].pose.keypoints[0].position.y;
+  }
+}
+function modelReady() {
+  console.log("model ready");
+}
+
+function draw() {
+  // fill(0,0,0,0.95);
+  // rect(0,0,width,height);
+  background(0,2);
+
+  fill(colorR,colorG,colorB)
+  noStroke()
+      ellipse(noseX -30, noseY - 5,25);
+    ellipse(noseX -15, noseY - 5,29);
+  ellipse(noseX, noseY,30);
+  ellipse(noseX + 10, noseY + 10,30);
+  ellipse(noseX + 20, noseY + 20,30);
+    ellipse(noseX + 25, noseY + 30,29);
+  ellipse(noseX + 25, noseY + 37,25);
+    ellipse(noseX + 23, noseY + 40,25);
+      ellipse(noseX + 25, noseY + 45,25);
+  ellipse(noseX + 15, noseY + 55,25);
+  
+  
+  
+
+    colorR = colorR + incrementR
+  if (colorR > 255 || colorR < 0) {
+    
+    incrementR = - incrementR
+  }
+  
+    colorG = colorG + incrementG
+  if (colorG > 255 || colorG < 0) {
+    
+    incrementG = - incrementG
+  }
+  colorB = colorB + incrementB
+  if (colorB > 255 || colorB < 0) {
+    
+    incrementB = - incrementB
+  }
+  
+      coloralpha = coloralpha + incrementCA
+  if (coloralpha > 100 || coloralpha < 0) {
+    
+    incrementCA = - incrementCA
+
+}
+}
+
