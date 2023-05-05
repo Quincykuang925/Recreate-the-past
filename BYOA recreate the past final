@@ -1,0 +1,172 @@
+let t = 0;
+let t2 = 0
+let t3 = 0
+
+function makeColor(t){
+  return [
+    t < 0.5 ? 1 : sin(PI*t),
+    sin(PI*t),
+    sin(PI*(t-0.7))   
+  ];
+}
+
+function setup() {
+  createCanvas(500, 500);
+  background(20);
+  // fillColor = color(random(255), random(255), random(255));
+}
+
+function draw() {
+  background(0,5);
+  translate(width/2, height/2);
+
+  let startX = x1(t);
+  let startY = y1(t);
+  let endX = x2(t);
+  let endY = y2(t);
+  
+  let startX2 = x3(t);
+  let startY2 = y3(t);
+  let endX2 = x4(t);
+  let endY2 = y4(t);
+  
+    let startX3 = x5(t);
+  let startY3 = y5(t);
+  let endX3 = x6(t);
+  let endY3 = y6(t);
+  
+  let fractionBlue = 1 / 20;
+  // Calculate the x-coordinate for the split point
+  let splitX = startX + (endX - startX) * fractionBlue;
+  
+  // Calculate the y-coordinate for the split point
+  let splitY = startY + (endY - startY) * fractionBlue;
+  
+  
+    // Calculate the x-coordinate for the split point
+  let splitX2 = startX2 + (endX2 - startX2) * fractionBlue;
+  
+  // Calculate the y-coordinate for the split point
+  let splitY2 = startY2 + (endY2 - startY2) * fractionBlue;
+  
+      // Calculate the x-coordinate for the split point
+  let splitX3 = startX3 + (endX3 - startX3) * fractionBlue;
+  
+  // Calculate the y-coordinate for the split point
+  let splitY3 = startY3 + (endY3 - startY3) * fractionBlue;
+  
+// first line:
+push()
+   let c3 = makeColor(t*0.02);
+    stroke(c3[0]*100+155,c3[1]*100+9,c3[2]*100+155);
+    strokeWeight(3);
+  line(startX, startY, splitX, splitY);
+pop()
+  
+push()
+  let c2 = makeColor(t*0.02);
+  stroke(c2[0]*100+15,c2[1]*100+95,c2[2]*100+155);
+  strokeWeight(0.5);
+  line(splitX, splitY, endX, endY);
+
+pop()
+  
+// second line:
+push()
+   let c4 = makeColor(t*0.02);
+    stroke(c4[0]*100+155,c4[1]*100+91,c4[2]*100+55);
+    strokeWeight(5);
+  line(startX2, startY2, splitX2, splitY2);
+pop()
+  
+push()
+  let c5 = makeColor(t*0.02);
+  stroke(c5[0]*100+155,c5[1]*100+95,c5[2]*100+15);
+  strokeWeight(0.3);
+  line(splitX2, splitY2, endX2, endY2);
+
+pop()
+  
+// third line:
+push()
+   let c6 = makeColor(t*0.02);
+    stroke(c6[0]*100+155,c6[1]*100+21,c6[2]*100+55);
+    strokeWeight(3);
+  line(startX3, startY3, splitX3, splitY3);
+  
+pop()
+  
+push()
+  let c7 = makeColor(t*0.02);
+  stroke(c7[0]*100+12,c7[1]*100+155,c7[2]*100+25);
+  strokeWeight(0.6);
+  line(splitX3, splitY3, endX3, endY3);
+
+pop()
+  
+  t = t+0.4;
+
+// first line:
+  
+}
+
+function x1(t) {
+  return sin(t/10) * 150 + sin(t/50) * 15;
+}
+
+function y1(t) {
+  return cos(t/10) * 160;
+
+}
+
+function x2(t) {
+  return sin(t/50) * 170 + sin(t/20) * 10;
+}
+
+function y2(t) {
+  return cos(t/20) * 180 + cos(t/12) * 10;
+
+}
+
+
+// second line:
+
+function x3(t) {
+  return sin(t/12) * 155 + sin(t/50) * 15;
+}
+
+function y3(t) {
+  return cos(t/12) * 160;
+
+}
+
+function x4(t) {
+  return sin(t/150) * 175 + sin(t/20) * 100;
+}
+
+function y4(t) {
+  return cos(t/203) * 180 + cos(t/12) * 101;
+
+}
+
+
+// second line:
+
+function x5(t) {
+  return sin(t/12) * 125 + sin(t/50) * 25;
+}
+
+function y5(t) {
+  return cos(t/20) * 160;
+
+}
+
+function x6(t) {
+  return sin(t/50) * 175 + sin(t/20) * 50;
+}
+
+function y6(t) {
+  return cos(t/23) * 180 + cos(t/12) * 120;
+
+}
+
